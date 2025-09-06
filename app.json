@@ -1,0 +1,38 @@
+{
+  "name": "Telegram Music Bot",
+  "description": "A simple Telegram music bot for Heroku",
+  "repository": "https://github.com/dream-chaser-07/music-bot",
+  "stack": "heroku-20",
+  "env": {
+    "API_ID": {
+      "description": "Your Telegram API_ID from my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Your Telegram API_HASH from my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Your bot token from BotFather",
+      "required": true
+    },
+    "ADMINS": {
+      "description": "Space separated user IDs who can control bot",
+      "required": false
+    },
+    "SESSION_NAME": {
+      "description": "Pyrogram session name",
+      "required": false
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "buildpacks": [
+    {"url": "heroku/python"},
+    {"url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"}
+  ]
+}
